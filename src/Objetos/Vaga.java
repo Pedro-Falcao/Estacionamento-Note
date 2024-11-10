@@ -1,16 +1,16 @@
 package Objetos;
 
-public class Vaga {
+public class Vaga{
 
     private int numero;
-    private boolean status = false; // Status == Ocupada
+    private boolean status;// Status == Ocupada
     private boolean preferencial;
 
-    public Vaga(int numero) {
+    public Vaga(int numero){
         this.numero = numero;
         this.status = true;
     }
-    public int getNumero() {
+    public int getNumero(){
         return numero;
     }
     public void setNumero(int numero) {

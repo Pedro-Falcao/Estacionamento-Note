@@ -3,11 +3,11 @@ import java.util.ArrayList;
 import java.util.List;
 import Objetos.Pessoa;
 
-public class RPessoas {
+public class RPessoas{
 
     private List<Pessoa> reppessoas;
 
-    public RPessoas() {
+    public RPessoas(){
         this.reppessoas = new ArrayList<>();
     }
 

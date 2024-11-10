@@ -1,37 +1,59 @@
 package Repositórios;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+
+import Objetos.Pessoa;
+import Objetos.Registro;
 import Objetos.Veiculo;
 
 public class RVeiculos {
     private List<Veiculo> repveiculo;
 
+
     public RVeiculos() {
         this.repveiculo = new ArrayList<Veiculo>();
     }
 
-    public void addVeiculo (Veiculo veiculo) {
+    // Adicionar um veículo ao repositório
+    public void addVeiculo(Veiculo veiculo) {
         repveiculo.add(veiculo);
-        // adicionar um veiculo ao repositório repveiculo
+        System.out.println("Veículo adicionado: " + veiculo);
     }
 
-    public void delVeiculo (String placa) {
-        for (Veiculo v : repveiculo) {
+    // Remover um veículo pela placa
+    public void delVeiculo(String placa) {
+        Iterator<Veiculo> iterator = repveiculo.iterator();
+        while (iterator.hasNext()) {
+            Veiculo v = iterator.next();
             if (v.getPlaca().equals(placa)) {
-                repveiculo.remove(v);
+                iterator.remove(); // Remove o veículo de forma segura
+                System.out.println("Veículo removido com placa: " + placa);
+                return;
             }
-        } // removendo um veículo usando a placa como verificação de exclusividade.
-    }
-    public void editVeiculo (String modelo, String placa, String cor) {
-       // isso não vai dar certo porque estou fazendo uma proucura de um objeto diferente do que o que ja existe e não estou sendo obrigado a digitar isso.
-        int localEditar = repveiculo.indexOf(new Veiculo(modelo,placa,cor));
-         repveiculo.set(localEditar, new Veiculo(modelo,placa,cor));
+        }
+        System.out.println("Veículo com placa " + placa + " não encontrado.");
     }
 
+    // Editar um veículo pela placa
+    public void editVeiculo(String placa, String novoModelo, String novaCor) {
+        for (Veiculo veiculo : repveiculo) {
+            if (veiculo.getPlaca().equals(placa)) {
+                veiculo.setModelo(novoModelo); // Atualiza o modelo
+                veiculo.setCor(novaCor);       // Atualiza a cor
+                System.out.println("Veículo atualizado: " + veiculo);
+                return;
+            }
+        }
+        System.out.println("Veículo com placa " + placa + " não encontrado.");
+    }
 
+    // Método para listar todos os veículos
 
-
-    // faltam metodos para editar e ler.
-    //
+    public void listarVeiculos() {
+        System.out.println("Lista de Veículos:");
+        for (Veiculo veiculo : repveiculo) {
+            System.out.println(veiculo);
+        }
+    }
 }
-

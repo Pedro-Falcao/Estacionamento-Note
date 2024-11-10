@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import Objetos.Vaga;
 
-public class RVagas {
+    public class RVagas{
     private List<Vaga> repvagas;
     int counter;
-    public RVagas(int vagaTotal) {
+
+    public RVagas(int vagaTotal){
         this.repvagas = new ArrayList<>();
         for (int i = 1; i <= vagaTotal; i++) {
             repvagas.add(new Vaga(i));
@@ -15,47 +16,58 @@ public class RVagas {
         }
     }
 
-    public void ocuparVaga(int numero) {
+    public void adicionarVaga(Vaga vaga){
+        repvagas.add(vaga);
+        System.out.println("Vaga adicionada: " + vaga);
+    }
+
+    public void removerVaga(Vaga vaga){
+        repvagas.remove(vaga);
+    }
+
+
+    public void ocuparVaga(int numero){
         Vaga vaga = buscarVagas(numero);
-        if (repvagas != null && repvagas.getFirst().getStatus()) { // nao entendi o que houve nas funcionou.
+        if (repvagas != null && vaga.getStatus()){ // nao entendi o que houve nas funcionou.
             repvagas.getFirst().ocupar();
             System.out.println("Vaga: " + numero + " Status: OCUPADA");
-        } else if (repvagas == null) {
+        } else if (repvagas == null){
             System.out.println("Vaga: " + numero + " Status: INEXISTENTE");
-        } else if (numero > counter){
-            System.out.println("Vaga: " + numero + " Status: INEXISTENTE");
-        }
-        else {
+        } else {
             System.out.println("Vaga: " + numero + " Status: LIVRE");
         }
     }
-        public void liberarVaga (int numero){
-            Vaga vaga = buscarVagas(numero);
-            if (repvagas != null && repvagas.getFirst().getStatus()) {
-                vaga.liberar();
-                System.out.println("Vaga: " + numero + " Status: LIVRE");
-            } else if (repvagas == null) {
-                System.out.println("Vaga: " + numero + " Status: INEXISTENTE");
-            } else if (numero > counter) {
-                System.out.println("Vaga: " + numero + " Status: INEXISTENTE");
-            } else {
-                System.out.println("Vaga: " + numero + " Status: LIVRE");
-            }
-        }
-        public void listarVagas() {
-            for (Vaga vaga : repvagas) {
-                System.out.println(vaga);
-            }
-        }
-        private Vaga buscarVagas(int numero) {
-            for (Vaga vaga : repvagas) {
-                if (vaga.getNumero() == numero) {
-                    return vaga;
-                }
-            }
-            return null;
+
+    public void liberarVaga(int numero){
+        Vaga vaga = buscarVagas(numero);
+        if (repvagas != null && vaga.getStatus()) {
+            vaga.liberar();
+            System.out.println("Vaga: " + numero + " Status: LIVRE");
+        } else if (repvagas == null){
+            System.out.println("Vaga: " + numero + " Status: INEXISTENTE");
+        } else {
+            System.out.println("Vaga: " + numero + " Status: LIVRE");
         }
     }
+
+    public void listarVagas(){
+        for (Vaga vaga : repvagas){
+            System.out.println("Vaga: " + vaga.getNumero() + " - " + (vaga.getStatus() ? "OCUPADA" : "LIVRE"));
+        }
+    }
+
+    public Vaga buscarVagas(int numero){
+        for (Vaga vaga : repvagas){
+            if (vaga.getNumero() == numero){
+                return vaga;
+            }
+        }
+        return null;
+    }
+}
+
+
+
 
 
 
