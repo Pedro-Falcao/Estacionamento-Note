@@ -1,5 +1,5 @@
 
-package Repositórios;
+package Repositorios;
 import java.util.ArrayList;
 import java.util.List;
 import Objetos.Vaga;
@@ -28,13 +28,13 @@ import Objetos.Vaga;
 
     public void ocuparVaga(int numero){
         Vaga vaga = buscarVagas(numero);
-        if (repvagas != null && vaga.getStatus()){ // nao entendi o que houve nas funcionou.
-            repvagas.getFirst().ocupar();
+        if (vaga.getStatus()){
             System.out.println("Vaga: " + numero + " Status: OCUPADA");
         } else if (repvagas == null){
             System.out.println("Vaga: " + numero + " Status: INEXISTENTE");
         } else {
-            System.out.println("Vaga: " + numero + " Status: LIVRE");
+            vaga.ocupar();
+            System.out.println("Vaga: " + numero + " Status: OCUPADA");
         }
     }
 

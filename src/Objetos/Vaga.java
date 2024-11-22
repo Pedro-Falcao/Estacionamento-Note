@@ -5,10 +5,12 @@ public class Vaga{
     private int numero;
     private boolean status;// Status == Ocupada
     private boolean preferencial;
+    public Vaga(){
 
+    }
     public Vaga(int numero){
         this.numero = numero;
-        this.status = true;
+        liberar();
     }
     public int getNumero(){
         return numero;

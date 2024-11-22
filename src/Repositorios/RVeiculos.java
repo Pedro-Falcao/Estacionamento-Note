@@ -1,10 +1,8 @@
-package Repositórios;
+package Repositorios;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import Objetos.Pessoa;
-import Objetos.Registro;
 import Objetos.Veiculo;
 
 public class RVeiculos {
@@ -48,7 +46,7 @@ public class RVeiculos {
         System.out.println("Veículo com placa " + placa + " não encontrado.");
     }
 
-    // Método para listar todos os veículos
+    // listagem de veiculos
 
     public void listarVeiculos() {
         System.out.println("Lista de Veículos:");

@@ -41,6 +41,11 @@ public class Pessoa extends Registro{
     }
     @Override
     public String toString() {
-        return "Pessoa{" + "id=" + getId() + ", nome='" + nome + '\'' + ", idade=" + idade + '}';
+        return "\n" +
+                "Id: " + getId() + "\n" +
+                "Nome: " + nome + "\n" +
+                "Idade: " + idade + "\n" +
+                "Sexo: " + sexo + "\n" +
+                "Documento: " + documento;
 
 }}

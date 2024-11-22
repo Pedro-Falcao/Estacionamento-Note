@@ -1,6 +1,6 @@
 package Objetos;
 
-public class Veiculo extends Registro{
+public class Veiculo{
 
     private String modelo;
     private String placa;
@@ -25,10 +25,19 @@ public class Veiculo extends Registro{
         this.cor = cor;
     }
 
-    public Veiculo(int id,String modelo, String placa, String cor) {
-        super(id);
+    public Veiculo(String modelo, String placa, String cor) {
         this.modelo = modelo;
         this.placa = placa;
         this.cor = cor;
     }
+
+    @Override
+    public String toString() {
+        return "\n" +
+                "Modelo: " + modelo + "\n" +
+                "Placa: " + placa + "\n" +
+                "Cor: " + cor;
+    }
+
 }
+
